@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>柱形图表01</title>
+    <script src="echarts.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 800px;height:420px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            title: {
+                text: '年龄群体车辆违章的占比统计',
+                textStyle: {
+                    color: '#D1BA74',
+                    fontFamily: '幼圆',
+                    fontWeight: 600,
+                    fontSize: 18,
+                },
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                left: 'right',
+                data: ['有违章', '无违章']
+            },
+            grid: {
+                left: '5%',
+                bottom: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                axisLine: {
+                    lineStyle: {
+                        fontSize: 20,
+
+                        fontWeight: 800,
+                        width: 4 // 粗细
+                    },
+
+                    //调整坐标轴的字体大小
+
+                },
+
+
+                axisLabel: {
+                    fontWeight: 700,
+                    fontSize: 16,
+                    fontFamily: 'YouYuan',
+
+                },
+
+                nameTextStyle: {
+                    color: '#19CAAD',
+                    fontWeight: 800,
+                    fontSize: 16,
+                },
+                name: '年龄',
+                nameLocation: 'end',
+
+                axisTick: {
+                    alignWithLabel: true,
+                    show: false
+                },
+                // 去掉下面线条
+                type: 'category',
+                data: [
+                    '90后', '80后', '70后', '60后', '50后',
+                ]
+            },
+            yAxis: {
+                axisLabel: {
+                    fontWeight: 700,
+                    fontSize: 16,
+                    fontFamily: 'YouYuan',
+
+                },
+                //调整坐标轴的字体大小
+
+
+                axisTick: {
+                    alignWithLabel: true,
+                    show: false
+                },
+                nameTextStyle: {
+                    color: '#19CAAD',
+                    fontWeight: 800,
+                    fontSize: 16,
+                },
+                name: '权重',
+                nameLocation: 'end',
+                min: 0,
+                max: 1200,
+                maxInterval: 200,
+                type: 'value',
+                axisLine: {
+                    onZero: false
+                }
+            },
+            series: [{
+
+                name: '无违章',
+                type: 'bar',
+                stack: '数据',
+                barWidth: 30,
+                itemStyle: {
+                    color: '#6A9800'
+                },
+                data: [210, 450, 450, 450, 180]
+            }, {
+
+                name: '有违章',
+                type: 'bar',
+                stack: '数据',
+                barWidth: 30,
+                itemStyle: {
+                    color: '#EB7208'
+                },
+                data: [80, 550, 450, 250, 80]
+            }, ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    </script>
+
+    <!-- 分割线第二个图表--------------------------------------------------------------------------------------------------------------------------- -->
+
+
+    <div id="main2" style="width: 800px;height:420px;"></div>
+    <script type="text/javascript">
+        var myChart2 = echarts.init(document.getElementById('main2'));
+
+        var option2 = {
+            title: {
+                text: '平台上男性和女性有无违章车辆的占比统计',
+                textStyle: {
+                    color: '#D1BA74',
+                    fontFamily: '幼圆',
+                    fontWeight: 600,
+                    fontSize: 18,
+                },
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                left: 'right',
+                data: ['有违法', '无违法']
+            },
+            grid: {
+                left: '5%',
+                bottom: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                axisLine: {
+                    lineStyle: {
+                        fontSize: 20,
+
+                        fontWeight: 800,
+                        width: 4 // 粗细
+                    },
+
+                    //调整坐标轴的字体大小
+
+                },
+                axisLabel: {
+                    fontWeight: 700,
+                    fontSize: 16,
+                    fontFamily: 'YouYuan',
+
+                },
+
+                nameTextStyle: {
+                    color: '#19CAAD',
+                    fontWeight: 800,
+                    fontSize: 16,
+                },
+                name: '性别',
+                nameLocation: 'end',
+
+                axisTick: {
+                    alignWithLabel: true,
+                    show: false
+                },
+                // 去掉下面线条
+                type: 'category',
+                data: [
+                    '女性', '男性'
+                ]
+            },
+            yAxis: {
+                axisLabel: {
+                    fontWeight: 700,
+                    fontSize: 16,
+                    fontFamily: 'YouYuan',
+
+                },
+                //调整坐标轴的字体大小
+
+
+                axisTick: {
+                    alignWithLabel: true,
+                    show: false
+                },
+                nameTextStyle: {
+                    color: '#19CAAD',
+                    fontWeight: 800,
+                    fontSize: 16,
+                },
+                name: '权重',
+                nameLocation: 'end',
+                min: 13000,
+                max: 20000,
+                maxInterval: 1000,
+                type: 'value',
+                axisLine: {
+                    onZero: false
+                }
+            },
+            series: [{
+
+                name: '无违法',
+                type: 'bar',
+                stack: '数据',
+                barWidth: 200,
+                itemStyle: {
+                    color: '#6A9800'
+                },
+                data: [15500, 15500]
+            }, {
+
+                name: '有违法',
+                type: 'bar',
+                stack: '数据',
+                barWidth: 200,
+                itemStyle: {
+                    color: '#EB7208'
+                },
+                data: [3000, 3200]
+            }, ]
+        };
+        if (option2 && typeof option2 === "object") {
+            myChart2.setOption(option2, true);
+        }
+    </script>
+
+</body>
+
+</html>

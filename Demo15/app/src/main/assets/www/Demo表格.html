@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+    <script>
+        function Login(){
+            var str;
+            str="用户名:"+login.username.value;
+            str=str+",密码:"+login.password.value;
+            alert(str);
+
+
+        }
+    
+    
+    </script>
+</head>
+<body>
+    <form name="login" >
+        用户名:<input type="text" name="username"/><br/>
+        密码:<input type="password" name="password"/><br/>
+        <input type="submit" value="提交" onclick="Login()"/><br/>
+        
+        
+
+    </form>
+
+    
+</body>
+</html>
